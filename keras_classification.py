@@ -1,12 +1,13 @@
 ###############################
 # Keras classification template
+# pima indian diabetes dateset
 ###############################
 
 # sklearn
 import pandas as pd
 import numpy as np
 import seaborn as sns
-import matplotlib
+#import matplotlib
 
 from sklearn.model_selection import train_test_split
 
@@ -17,7 +18,20 @@ from keras.optimizers import Adam
 
 # load data
 df = pd.read_csv("data/diabetes.csv")
-X =
+
+# EDA
+print(df.keys())
+print("*" * 40)
+print(df.info())
+print("*" * 40)
+print(df.describe().T)
+
+
+# Scaling
+from sklearn.preprocessing import StandardScaler
+sc = StandardScaler()
+X_scaled = sc.fit_transform(df.drop("Outcome"))
+X = df
 y =
 model.summary()
 
